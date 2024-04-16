@@ -60,16 +60,16 @@ def show_todos(conn):
     except psycopg2.Error as e:
         print(e)
 
-# Function to mark a to-do item as completed
-def complete_todo(conn, todo_id):
-    try:
-        cursor = conn.cursor()
-        sql = "UPDATE todos SET completed = TRUE WHERE id = %s"
-        cursor.execute(sql, (todo_id,))
-        conn.commit()
-        print("Task marked as completed")
-    except psycopg2.Error as e:
-        print(e)
+# # Function to mark a to-do item as completed
+# def complete_todo(conn, todo_id):
+#     try:
+#         cursor = conn.cursor()
+#         sql = "UPDATE todos SET completed = TRUE WHERE id = %s"
+#         cursor.execute(sql, (todo_id,))
+#         conn.commit()
+#         print("Task marked as completed")
+#     except psycopg2.Error as e:
+#         print(e)
 
 # Function to edit a to-do item
 def edit_todo(conn, todo_id, new_task, new_description=None):
