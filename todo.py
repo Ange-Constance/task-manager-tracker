@@ -70,3 +70,25 @@ def complete_todo(conn, todo_id):
         print("Task marked as completed")
     except psycopg2.Error as e:
         print(e)
+
+# Function to edit a to-do item
+def edit_todo(conn, todo_id, new_task, new_description=None):
+    try:
+        cursor = conn.cursor()
+        sql = "UPDATE todos SET task = %s, description = %s WHERE id = %s"
+        cursor.execute(sql, (new_task, new_description, todo_id))
+        conn.commit()
+        print("Task updated successfully")
+    except psycopg2.Error as e:
+        print(e)
+
+# Function to delete a to-do item
+def delete_todo(conn, todo_id):
+    try:
+        cursor = conn.cursor()
+        sql = "DELETE FROM todos WHERE id = %s"
+        cursor.execute(sql, (todo_id,))
+        conn.commit()
+        print("Task deleted successfully")
+    except psycopg2.Error as e:
+        print(e)
