@@ -70,5 +70,3 @@ def complete_todo(conn, todo_id):
         print("Task marked as completed")
     except psycopg2.Error as e:
         print(e)
-
-# Charlotte
